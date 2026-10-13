@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tenantmanagementsystemss.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,14 +27,12 @@ class RegisterActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Account created. Please log in.", Toast.LENGTH_SHORT).show()
 
-            // Go back to Login, carrying the email as a note on the Intent
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("EMAIL", email)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
 
-        // Login is still open underneath, so just close this screen
         binding.loginLinkTextView.setOnClickListener {
             finish()
         }
